@@ -14,12 +14,12 @@ Built on the research in [vortex-extension-groundwork](https://github.com/sebast
 
 | Archive layout | Example | Installer | Deploys to |
 |---|---|---|---|
-| BepInEx pack (`winhttp.dll`, `BepInEx/core`, `dotnet/`) | Nexus #25 | modtype-bepinex injector (prio 10) | game root |
+| BepInEx pack (`winhttp.dll`, `BepInEx/core`, `dotnet/`) | Nexus #25 | `nivalisnights-bepinex-pack` (5) — loader only, bundled Timestamp/SplashScreen dropped | game root |
 | `plugins/` / `config/` / `patchers/` at root | — | modtype-bepinex root (prio 10) | `BepInEx/` |
 | FOMOD | — | Vortex FOMOD (prio 10/20) | game root |
-| **`BepInEx/...`** relative to game root (the common case) | Trainer, ModKit, Ambience | `nivalisnights-bepinex-anchored` (26) | `BepInEx/` |
-| Bare DLL(s), optionally in a mod folder | — | `nivalisnights-loose-plugin` (27) | `BepInEx/plugins/` |
-| MelonLoader build (`Mods/*.dll`, `MelonLoader/`) | Trainer's ML file | `nivalisnights-melonloader` (25) | **refused** with a message to get the BepInEx file |
+| **`BepInEx/...`** relative to game root (the common case) | Trainer, ModKit, Ambience | `nivalisnights-bepinex-anchored` (22) | `BepInEx/` |
+| Bare DLL(s), optionally in a mod folder | — | `nivalisnights-loose-plugin` (23) | `BepInEx/plugins/` |
+| MelonLoader build (`Mods/*.dll`, `MelonLoader/`) | Trainer's ML file | `nivalisnights-melonloader` (21) | **refused** with a message to get the BepInEx file |
 | Anything else (e.g. standalone tools with an `.exe`) | Save Editor | Vortex fallback (1000) | game root |
 
 Docs that would land in a shared folder (`BepInEx/plugins/README.md`, root-level readmes) are dropped to avoid
@@ -82,10 +82,11 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ### Known issues / notes
 
-- **Pack extras**: the #25 pack ships the *Timestamp* plugin (`BepInEx/plugins/Tobey`) and the *BepInEx.SplashScreen*
-  patcher. They cause ~450 harmless `TypeLoadException` / HarmonyX warnings in `LogOutput.log` and a misleading
-  "[Splash] … assuming preloader/chainloader has crashed" error, even though startup completes. Manual installs often
-  omit them. Possible follow-up: a priority-<10 installer for the pack that drops them.
+- **Pack extras** (fixed in 0.2.0): the #25 pack ships the *Timestamp* plugin and the *BepInEx.SplashScreen* patcher,
+  which caused ~450 harmless `TypeLoadException` warnings and a false "[Splash] … chainloader has crashed" error. The
+  pack installer now leaves them out. Existing installs: right-click the BepInEx mod → Reinstall.
+- **Installer order**: our mod installers run at 21–23, ahead of the 25 slot where some community extensions (e.g.
+  Bannerlord's) mis-answer for other games and log "Buggy installer" errors.
 - **Exit crash is the game's**: `0xc0000005` in `UnityPlayer.dll` on quit also happens without Vortex (Windows event
   log shows it on most exits since 2026-10-02).
 - **Deployment method**: with the staging folder on another drive than the game, Vortex uses symlinks. Putting the

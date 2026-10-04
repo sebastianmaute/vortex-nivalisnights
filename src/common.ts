@@ -17,16 +17,22 @@ export const BEPINEX_PACK = {
 } as const;
 
 /** Mod types registered by Vortex's bundled modtype-bepinex extension once the game is added to it. */
+export const MODTYPE_BEPINEX_INJECTOR = "bepinex-injector"; // deploys to the game root; marks "the" BepInEx install
 export const MODTYPE_BEPINEX_ROOT = "bepinex-root";
 export const MODTYPE_BEPINEX_PLUGIN = "bepinex-plugin";
 
 /**
  * Installer priorities: Vortex tries lower numbers first, and the first installer that accepts an
  * archive wins. Built-ins: modtype-bepinex 10 (BepInEx pack, plugins/config/patchers-rooted mods),
- * FOMOD 10/20, fallback 1000. Ours run after those.
+ * FOMOD 10/20, fallback 1000. Our mod installers run after those; the loader-pack installer runs
+ * before modtype-bepinex's injector installer so it can leave out the pack's bundled extras.
  */
 export const PRIORITY = {
-  melonLoader: 25,
-  bepinexAnchored: 26,
-  loosePlugin: 27,
+  bepinexPack: 5,
+  // 21-23: after FOMOD (20) but before 25, the slot most community game extensions use — some of
+  // those don't answer correctly for other games (e.g. Bannerlord's returns undefined -> "Buggy
+  // installer" log errors), so we claim our archives first. Our tests check the game id strictly.
+  melonLoader: 21,
+  bepinexAnchored: 22,
+  loosePlugin: 23,
 } as const;

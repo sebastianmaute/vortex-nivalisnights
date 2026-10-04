@@ -13,9 +13,11 @@ import {
 } from "./common";
 import {
   installBepInExAnchored,
+  installBepInExPack,
   installLoosePlugin,
   installMelonLoader,
   testBepInExAnchored,
+  testBepInExPack,
   testLoosePlugin,
   testMelonLoader,
 } from "./installers";
@@ -87,6 +89,7 @@ function main(context: types.IExtensionContext): boolean {
     },
   });
 
+  context.registerInstaller(`${GAME_ID}-bepinex-pack`, PRIORITY.bepinexPack, testBepInExPack, installBepInExPack);
   context.registerInstaller(`${GAME_ID}-melonloader`, PRIORITY.melonLoader, testMelonLoader, installMelonLoader);
   context.registerInstaller(`${GAME_ID}-bepinex-anchored`, PRIORITY.bepinexAnchored, testBepInExAnchored, installBepInExAnchored);
   context.registerInstaller(`${GAME_ID}-loose-plugin`, PRIORITY.loosePlugin, testLoosePlugin, installLoosePlugin);

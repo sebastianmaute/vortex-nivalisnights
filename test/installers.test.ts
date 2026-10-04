@@ -3,9 +3,11 @@ import * as path from "path";
 
 import { describe, expect, it } from "vitest";
 
-import { GAME_ID, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "../src/common";
+import { GAME_ID, MODTYPE_BEPINEX_INJECTOR, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "../src/common";
 import {
   installBepInExAnchored,
+  installBepInExPack,
+  testBepInExPack,
   installLoosePlugin,
   installMelonLoader,
   MELONLOADER_MESSAGE,
@@ -43,6 +45,41 @@ const copies = (r: { instructions: any[] }) =>
 const modType = (r: { instructions: any[] }) =>
   r.instructions.find((i) => i.type === "setmodtype")?.value;
 
+describe("BepInEx loader pack", () => {
+  it("pack (#25) -> loader files only; bundled Timestamp plugin and SplashScreen patcher dropped", async () => {
+    const files = fixture("bepinex-pack");
+    expect((await testBepInExPack(files, GAME_ID)).supported).toBe(true);
+    const r = await installBepInExPack(files);
+    const dest = copies(r);
+    expect(dest).toContain("winhttp.dll");
+    expect(dest).toContain("doorstop_config.ini");
+    expect(dest).toContain(".doorstop_version");
+    expect(dest).toContain(p("BepInEx", "core", "BepInEx.Unity.IL2CPP.dll"));
+    expect(dest).toContain(p("BepInEx", "config", "BepInEx.cfg"));
+    expect(dest).toContain(p("dotnet", "coreclr.dll"));
+    expect(dest.filter((d) => d.startsWith(p("BepInEx", "plugins")) || d.startsWith(p("BepInEx", "patchers")))).toEqual([]);
+    const data = files.filter((f) => !f.endsWith("\\"));
+    const extras = data.filter((f) => /^BepInEx\\(plugins|patchers)\\/.test(f));
+    expect(extras).toHaveLength(6);
+    expect(dest).toHaveLength(data.length - extras.length);
+    expect(modType(r)).toBe(MODTYPE_BEPINEX_INJECTOR);
+    expect(r.instructions).toContainEqual({ type: "attribute", key: "customFileName", value: "Bepis Injector Extensible" });
+  });
+
+  it("pack wrapped in a top-level folder is unwrapped", async () => {
+    const files = fixture("bepinex-pack").map((f) => p("BepInEx_IL2CPP_6.0.0-be.788", f));
+    expect((await testBepInExPack(files, GAME_ID)).supported).toBe(true);
+    expect(copies(await installBepInExPack(files))).toContain("winhttp.dll");
+  });
+
+  it("regular mods and other games are not treated as a loader pack", async () => {
+    for (const name of ["trainer", "modkit", "ambience"]) {
+      expect((await testBepInExPack(fixture(name), GAME_ID)).supported).toBe(false);
+    }
+    expect((await testBepInExPack(fixture("bepinex-pack"), "valheim")).supported).toBe(false);
+  });
+});
+
 describe("real Nexus archives", () => {
   it("Trainer (BepInEx/plugins/X.dll + docs at root) -> anchored, docs dropped", async () => {
     const files = fixture("trainer");
@@ -71,7 +108,7 @@ describe("real Nexus archives", () => {
     expect(dest).toHaveLength(files.filter((f) => !f.endsWith("\\")).length);
   });
 
-  it("BepInEx pack -> claimed by none of ours (modtype-bepinex's injector installer owns it)", async () => {
+  it("BepInEx pack -> claimed by none of the mod installers (the pack installer, prio 5, owns it)", async () => {
     expect(await claimedBy(fixture("bepinex-pack"))).toEqual([]);
   });
 });

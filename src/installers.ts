@@ -2,7 +2,7 @@ import * as path from "path";
 
 import type { types } from "@nexusmods/vortex-api";
 
-import { GAME_ID, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "./common";
+import { GAME_ID, MODTYPE_BEPINEX_INJECTOR, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "./common";
 
 // Archive entries reach installers with path.sep separators, but some extraction backends
 // produce "/" — every helper here accepts both.
@@ -26,6 +26,66 @@ const bepinexIndex = (file: string): number =>
   segmentsOf(file).findIndex((s) => s.toLowerCase() === "bepinex");
 
 const ROOT_DIRS = new Set(["plugins", "config", "patchers"]);
+
+// ---------------------------------------------------------------------------------------------
+// 0. The BepInEx loader pack itself (Nexus #25 or any IL2CPP BepInEx 6 build): doorstop proxy at
+//    the root plus BepInEx/core. Installed like modtype-bepinex's injector installer would (same
+//    mod type, so its download/update/enable logic keeps working), but without the plugins and
+//    patchers the pack bundles (Timestamp, SplashScreen) — they only add log noise and a
+//    misleading "chainloader has crashed" splash error.
+// ---------------------------------------------------------------------------------------------
+
+const LOADER_CORE = "bepinex.unity.il2cpp.dll";
+const DOORSTOP_PROXY = "winhttp.dll";
+
+/** Index of the "BepInEx" segment in the path of the loader's core DLL, or -1. */
+const loaderCoreAnchor = (file: string): number => {
+  const segs = segmentsOf(file).map((s) => s.toLowerCase());
+  const n = segs.length;
+  return n >= 3 && segs[n - 1] === LOADER_CORE && segs[n - 2] === "core" && segs[n - 3] === "bepinex" ? n - 3 : -1;
+};
+
+export function testBepInExPack(files: string[], gameId: string): Promise<types.ISupportedResult> {
+  if (gameId !== GAME_ID) {
+    return unsupported();
+  }
+  const data = dataFiles(files);
+  const core = data.find((f) => loaderCoreAnchor(f) !== -1);
+  if (core === undefined) {
+    return unsupported();
+  }
+  const prefix = segmentsOf(core).slice(0, loaderCoreAnchor(core)).join("/").toLowerCase();
+  const proxy = data.some((f) => {
+    const segs = segmentsOf(f);
+    return segs[segs.length - 1].toLowerCase() === DOORSTOP_PROXY && segs.slice(0, -1).join("/").toLowerCase() === prefix;
+  });
+  return proxy ? supported() : unsupported();
+}
+
+export const INJECTOR_NAME = "Bepis Injector Extensible";
+
+export function installBepInExPack(files: string[]): Promise<types.IInstallResult> {
+  const data = dataFiles(files);
+  const core = data.find((f) => loaderCoreAnchor(f) !== -1)!;
+  const prefixLen = loaderCoreAnchor(core);
+  const prefix = segmentsOf(core).slice(0, prefixLen).map((s) => s.toLowerCase());
+  const instructions: types.IInstruction[] = [];
+  for (const file of data) {
+    const segs = segmentsOf(file);
+    if (segs.length <= prefixLen || !prefix.every((p, i) => segs[i].toLowerCase() === p)) {
+      continue; // outside the folder that holds the loader
+    }
+    const rel = segs.slice(prefixLen);
+    const isExtra = rel.length >= 3 && rel[0].toLowerCase() === "bepinex" && ["plugins", "patchers"].includes(rel[1].toLowerCase());
+    if (isExtra) {
+      continue;
+    }
+    instructions.push({ type: "copy", source: file, destination: rel.join(path.sep) });
+  }
+  instructions.push({ type: "setmodtype", value: MODTYPE_BEPINEX_INJECTOR });
+  instructions.push({ type: "attribute", key: "customFileName", value: INJECTOR_NAME });
+  return Promise.resolve({ instructions });
+}
 
 // ---------------------------------------------------------------------------------------------
 // 1. MelonLoader builds — this extension uses BepInEx; refuse with a helpful message.
