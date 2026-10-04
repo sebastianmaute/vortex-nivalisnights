@@ -46,7 +46,7 @@ const modType = (r: { instructions: any[] }) =>
   r.instructions.find((i) => i.type === "setmodtype")?.value;
 
 describe("BepInEx loader pack", () => {
-  it("pack (#25) -> loader files only; bundled Timestamp plugin and SplashScreen patcher dropped", async () => {
+  it("pack (#25) -> loader + SplashScreen patcher; bundled Timestamp plugin dropped", async () => {
     const files = fixture("bepinex-pack");
     expect((await testBepInExPack(files, GAME_ID)).supported).toBe(true);
     const r = await installBepInExPack(files);
@@ -57,10 +57,12 @@ describe("BepInEx loader pack", () => {
     expect(dest).toContain(p("BepInEx", "core", "BepInEx.Unity.IL2CPP.dll"));
     expect(dest).toContain(p("BepInEx", "config", "BepInEx.cfg"));
     expect(dest).toContain(p("dotnet", "coreclr.dll"));
-    expect(dest.filter((d) => d.startsWith(p("BepInEx", "plugins")) || d.startsWith(p("BepInEx", "patchers")))).toEqual([]);
+    expect(dest.filter((d) => d.startsWith(p("BepInEx", "plugins")))).toEqual([]);
+    expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.GUI.exe"));
+    expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.Patcher.BepInEx6.dll"));
     const data = files.filter((f) => !f.endsWith("\\"));
-    const extras = data.filter((f) => /^BepInEx\\(plugins|patchers)\\/.test(f));
-    expect(extras).toHaveLength(6);
+    const extras = data.filter((f) => /^BepInEx\\plugins\\/.test(f));
+    expect(extras).toEqual([p("BepInEx", "plugins", "Tobey", "Tobey.BepInEx.Timestamp.dll")]);
     expect(dest).toHaveLength(data.length - extras.length);
     expect(modType(r)).toBe(MODTYPE_BEPINEX_INJECTOR);
     expect(r.instructions).toContainEqual({ type: "attribute", key: "customFileName", value: "Bepis Injector Extensible" });

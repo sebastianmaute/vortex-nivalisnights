@@ -14,7 +14,7 @@ Built on the research in [vortex-extension-groundwork](https://github.com/sebast
 
 | Archive layout | Example | Installer | Deploys to |
 |---|---|---|---|
-| BepInEx pack (`winhttp.dll`, `BepInEx/core`, `dotnet/`) | Nexus #25 | `nivalisnights-bepinex-pack` (5) — loader only, bundled Timestamp/SplashScreen dropped | game root |
+| BepInEx pack (`winhttp.dll`, `BepInEx/core`, `dotnet/`) | Nexus #25 | `nivalisnights-bepinex-pack` (5) — loader + splash screen, bundled Timestamp plugin dropped | game root |
 | `plugins/` / `config/` / `patchers/` at root | — | modtype-bepinex root (prio 10) | `BepInEx/` |
 | FOMOD | — | Vortex FOMOD (prio 10/20) | game root |
 | **`BepInEx/...`** relative to game root (the common case) | Trainer, ModKit, Ambience | `nivalisnights-bepinex-anchored` (22) | `BepInEx/` |
@@ -85,9 +85,11 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ### Known issues / notes
 
-- **Pack extras** (fixed in 0.2.0): the #25 pack ships the *Timestamp* plugin and the *BepInEx.SplashScreen* patcher,
-  which caused ~450 harmless `TypeLoadException` warnings and a false "[Splash] … chainloader has crashed" error. The
-  pack installer now leaves them out. Existing installs: right-click the BepInEx mod → Reinstall.
+- **Pack extras**: the #25 pack ships the *Timestamp* plugin and the *BepInEx.SplashScreen* patcher. Timestamp is left
+  out (it only fetches and logs the time). The splash screen is kept by choice (0.2.1); it is the likely source of
+  ~450 harmless `TypeLoadException` warnings (its lookup of the BepInEx 5 type `BepInEx.ThreadingHelper` scans all
+  assemblies) and of a false "[Splash] … chainloader has crashed" message — the game still starts normally.
+  Existing installs: right-click the BepInEx mod → Reinstall.
 - **Installer order**: our mod installers run at 21–23, ahead of the 25 slot where some community extensions (e.g.
   Bannerlord's) mis-answer for other games and log "Buggy installer" errors.
 - **Exit crash is the game's**: `0xc0000005` in `UnityPlayer.dll` on quit also happens without Vortex (Windows event

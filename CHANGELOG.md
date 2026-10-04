@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.2.0 — unreleased
+## 0.2.1 — unreleased
+
+- Keep the pack's BepInEx.SplashScreen patcher (loading splash) — only the bundled Timestamp plugin is left out.
+
+## 0.2.0 — 2026-10-04 (dev build)
 
 - BepInEx pack installed by our own installer (priority 5): same `bepinex-injector` mod type as Vortex's, but without
   the pack's bundled Timestamp plugin and SplashScreen patcher (≈450 log warnings and a false "chainloader has crashed"

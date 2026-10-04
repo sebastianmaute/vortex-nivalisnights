@@ -30,9 +30,9 @@ const ROOT_DIRS = new Set(["plugins", "config", "patchers"]);
 // ---------------------------------------------------------------------------------------------
 // 0. The BepInEx loader pack itself (Nexus #25 or any IL2CPP BepInEx 6 build): doorstop proxy at
 //    the root plus BepInEx/core. Installed like modtype-bepinex's injector installer would (same
-//    mod type, so its download/update/enable logic keeps working), but without the plugins and
-//    patchers the pack bundles (Timestamp, SplashScreen) — they only add log noise and a
-//    misleading "chainloader has crashed" splash error.
+//    mod type, so its download/update/enable logic keeps working), but without the plugins the
+//    pack bundles (the Timestamp plugin, which only queries time.cloudflare.com and logs the
+//    time). Patchers (the loading splash screen) are kept.
 // ---------------------------------------------------------------------------------------------
 
 const LOADER_CORE = "bepinex.unity.il2cpp.dll";
@@ -76,7 +76,7 @@ export function installBepInExPack(files: string[]): Promise<types.IInstallResul
       continue; // outside the folder that holds the loader
     }
     const rel = segs.slice(prefixLen);
-    const isExtra = rel.length >= 3 && rel[0].toLowerCase() === "bepinex" && ["plugins", "patchers"].includes(rel[1].toLowerCase());
+    const isExtra = rel.length >= 3 && rel[0].toLowerCase() === "bepinex" && rel[1].toLowerCase() === "plugins";
     if (isExtra) {
       continue;
     }
