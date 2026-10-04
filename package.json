@@ -1,0 +1,24 @@
+{
+  "name": "game-nivalisnights",
+  "version": "0.1.0",
+  "description": "Vortex support for Nivalis Nights",
+  "author": "Sebastian Maute",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "package": "npm run build && node scripts/package.mjs",
+    "deploy:dev": "npm run build && node scripts/deploy-dev.mjs"
+  },
+  "config": {
+    "game": "Nivalis Nights"
+  },
+  "devDependencies": {
+    "@nexusmods/vortex-api": "2.7.2",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

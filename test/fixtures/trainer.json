@@ -1,0 +1,8 @@
+{
+  "source": "Nivalis Nights Trainer 1.0.2 BepInEx 3 1.0.2 2026-10-02T06-18Z EAQ93IasB.zip",
+  "files": [
+    "BepInEx\\plugins\\NivalisTrainer.dll",
+    "NivalisNightsTrainer-README.md",
+    "NivalisNightsTrainer-CHANGELOG.md"
+  ]
+}
