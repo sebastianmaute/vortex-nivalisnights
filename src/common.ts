@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: EUPL-1.2
 /** Nexus Mods domain (nexusmods.com/nivalisnights) — also the Vortex game id. */
 export const GAME_ID = "nivalisnights";
 export const GAME_NAME = "Nivalis Nights";

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: EUPL-1.2
 import * as path from "path";
 
 import type { types } from "@nexusmods/vortex-api";

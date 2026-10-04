@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: EUPL-1.2
 // Regression suite over file listings of real Nexus Mods archives (test/fixtures/nexus/*.json,
 // generated from the downloads used in the 2026-10-04 clean-install test in Vortex 2.7.2).
 import { readdirSync, readFileSync } from "fs";

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: EUPL-1.2
 // Zips dist/ into release/game-nivalisnights-<version>.zip with all files at the archive root
 // (a nested top-level folder is the most common Vortex review failure).
 import { execFileSync } from "node:child_process";

@@ -70,7 +70,7 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ## Status
 
-`0.1.0` — unit-tested, and tested in Vortex 2.7.2 on 2026-10-04:
+`0.3.0` — first public release. Unit-tested (44 tests), and tested in Vortex 2.7.2 on 2026-10-04 (0.1.0–0.2.4):
 
 - ✅ Extension loads; game discovered via Steam; BepInEx pack (#25) downloaded from Nexus and installed by
   modtype-bepinex as "Bepis Injector Extensible" (mod type `bepinex-injector`).
@@ -118,3 +118,8 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   removed files, or on purge — not on every deploy.
 - `BepInEx.cfg` is deployed from the pack mod; BepInEx rewrites it through the link into the staging folder on first run.
   The extension's default sets `[Logging.Console] Enabled = false` (same as the pack).
+
+## License
+
+[EUPL-1.2](LICENSE) © 2026 Sebastian Maute. Third-party material (game art, the BepInEx pack downloaded at runtime,
+type definitions) is listed in [NOTICE.md](NOTICE.md).

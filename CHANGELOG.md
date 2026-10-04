@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.2.4 — unreleased
+## 0.3.0 — first public release
+
+- Licensed under EUPL-1.2; `LICENSE` ships in the extension archive.
+- `info.json` name is now "Nivalis Nights" (matches the game on Nexus Mods).
+- Includes everything from the 0.1.0–0.2.4 development builds below.
+
+## 0.2.4 — 2026-10-04 (dev build)
 
 - `requiresCleanup: true`: Vortex removes empty folders it created when mods are removed or moved (it defaults to off
   with `mergeMods: true`, which left e.g. an empty `BepInEx/plugins/BepInEx/plugins/NivalisBoatDecor` behind).

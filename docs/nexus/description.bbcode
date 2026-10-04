@@ -1,0 +1,59 @@
+[size=5][b]Vortex Support for Nivalis Nights[/b][/size]
+
+Adds [b]Nivalis Nights[/b] to [url=https://www.nexusmods.com/about/vortex/]Vortex[/url], the Nexus Mods mod manager. Install mods with one click from Nexus Mods and Vortex puts them in the right place — no manual copying into BepInEx folders.
+
+[size=4][b]Features[/b][/size]
+[list]
+[*][b]Finds the game automatically[/b] (Steam).
+[*][b]Installs BepInEx 6 for you[/b] — the first time you manage the game, Vortex downloads the [url=https://www.nexusmods.com/nivalisnights/mods/25]BepInEx IL2CPP Pack for Nivalis Nights[/url] (BepInEx 6.0.0-be.788, the build Nivalis Nights mods are made for) and sets it up. The pack's loading splash screen is kept; its bundled Timestamp plugin is left out.
+[*][b]Installs mods correctly whatever the archive layout[/b]:
+[list]
+[*]archives packed as [i]BepInEx/plugins/...[/i] (most Nivalis Nights mods), including ones wrapped in an extra folder
+[*]plain plugin DLLs, with or without their own folder
+[*]mods that also ship a config file ([i]BepInEx/config[/i])
+[*]FOMOD installers (handled by Vortex itself)
+[/list]
+[*][b]Keeps your plugins folder tidy[/b] — readme/license files are only kept inside a mod's own folder, never dumped into shared folders where they would clash.
+[*][b]Warns about MelonLoader builds[/b] — if you grab the MelonLoader file of a mod by mistake, Vortex tells you to download the BepInEx version instead of installing something that won't load.
+[*][b]Clean uninstall[/b] — Vortex removes everything it deployed, including empty folders it created.
+[/list]
+
+[size=4][b]Requirements[/b][/size]
+[list]
+[*][url=https://www.nexusmods.com/about/vortex/]Vortex[/url] 2.x (tested with 2.7.2)
+[*]Nivalis Nights on Steam
+[/list]
+BepInEx is installed automatically — you don't need to download it yourself.
+
+[size=4][b]Installation[/b][/size]
+[list=1]
+[*]Install this extension from Vortex's [b]Extensions[/b] tab (search "Nivalis Nights"), or click [b]Vortex[/b] above to download it with Vortex.
+[*]Restart Vortex, go to [b]Games[/b] and click [b]Manage[/b] on Nivalis Nights.
+[*]Let Vortex download and enable [b]Bepis Injector Extensible[/b] (BepInEx), then deploy.
+[*]Install mods with the [b]Mod Manager Download[/b] button on their Nexus Mods pages, enable them and deploy.
+[/list]
+
+[b]Already modded the game by hand?[/b] Vortex keeps files it finds in the way as [i].vortex_backup[/i] copies and restores them when you purge. For the cleanest result, remove your manual BepInEx install (the [i]BepInEx[/i] and [i]dotnet[/i] folders, [i]winhttp.dll[/i], [i]doorstop_config.ini[/i], [i].doorstop_version[/i], [i]changelog.txt[/i]) and reinstall your mods through Vortex.
+
+[b]Tip:[/b] keep Vortex's mod staging folder on the same drive as the game (Settings → Mods). Vortex can then use hard links, which need no administrator rights.
+
+[size=4][b]Known issues[/b][/size]
+[list]
+[*]The BepInEx splash screen causes several hundred harmless "Could not load type" warnings in [i]BepInEx/LogOutput.log[/i] and sometimes a "[Splash] … assuming preloader/chainloader has crashed" message. The game starts normally; it's the splash screen misreading the log. To get rid of both, disable it in [i]BepInEx/config/BepInEx.SplashScreen.cfg[/i] ([i]Enabled = false[/i]).
+[*]The splash screen only shows while the BepInEx console is off, unless you set [i]OnlyNoConsole = false[/i] in the same file.
+[*]Nivalis Nights currently crashes on quitting (access violation in UnityPlayer.dll). This also happens without mods or Vortex and is unrelated to this extension.
+[*]Standalone tools (e.g. save editors) aren't BepInEx mods; Vortex installs them as-is into the game folder.
+[/list]
+
+[size=4][b]For mod authors[/b][/size]
+Pack your mod relative to the game folder ([i]BepInEx/plugins/YourMod/YourMod.dll[/i]) — that's what this extension (and manual users) expect. Readme/license files next to the [i]BepInEx[/i] folder are fine; they are skipped.
+
+[size=4][b]Credits[/b][/size]
+[list]
+[*][b]BepInEx Team[/b] for BepInEx, and [b]letsi[/b] for the BepInEx IL2CPP Pack for Nivalis Nights
+[*]ION LANDS for Nivalis Nights
+[*]The Nexus Mods Vortex team
+[/list]
+
+[size=4][b]License[/b][/size]
+Released under the [url=https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12]European Union Public Licence v1.2[/url] (EUPL-1.2). Game artwork © ION LANDS.

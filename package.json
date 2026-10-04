@@ -1,8 +1,9 @@
 {
   "name": "game-nivalisnights",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Vortex support for Nivalis Nights",
   "author": "Sebastian Maute",
+  "license": "EUPL-1.2",
   "private": true,
   "main": "dist/index.js",
   "scripts": {

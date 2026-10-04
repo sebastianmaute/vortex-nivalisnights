@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: EUPL-1.2
 // Copies dist/ into Vortex's user plugins folder for local testing. Restart Vortex afterwards.
 import { cpSync, rmSync } from "node:fs";
 import { join } from "node:path";
