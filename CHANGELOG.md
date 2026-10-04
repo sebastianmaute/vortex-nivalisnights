@@ -1,6 +1,11 @@
 # Changelog
 
-## 0.2.3 — unreleased
+## 0.2.4 — unreleased
+
+- `requiresCleanup: true`: Vortex removes empty folders it created when mods are removed or moved (it defaults to off
+  with `mergeMods: true`, which left e.g. an empty `BepInEx/plugins/BepInEx/plugins/NivalisBoatDecor` behind).
+
+## 0.2.3 — 2026-10-04 (dev build)
 
 - Docs are also recognised by name with or without extension (`LICENSE`, `COPYING`, `README`, …). Boat Decor ships an
   extensionless `LICENSE` next to `BepInEx/`, so 0.2.2 declined it and Vortex's fallback + the `bepinex-plugin` mod type

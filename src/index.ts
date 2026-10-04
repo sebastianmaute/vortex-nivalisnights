@@ -74,6 +74,9 @@ function main(context: types.IExtensionContext): boolean {
     id: GAME_ID,
     name: GAME_NAME,
     mergeMods: true,
+    // Remove empty folders left behind by removed/moved mods (many mods ship their own plugin folder).
+    // With the default directoryCleaning "tag", only folders Vortex created are removed.
+    requiresCleanup: true,
     logo: "gameart.jpg",
     executable: () => EXECUTABLE,
     requiredFiles: [EXECUTABLE, "GameAssembly.dll"],
