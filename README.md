@@ -78,6 +78,9 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   `BepInEx/plugins/...` — no doubled paths, Trainer docs not dumped in the game root.
 - ✅ Game launched from Vortex: BepInEx 6.0.0-be.788 loaded 25 plugins, mods active at the main menu.
 - ✅ Pre-existing manually installed files were kept as `*.vortex_backup` and replaced by links (restored on purge).
+- ✅ 0.2.0 re-test (hardlink deployment, staging on the game drive): pack reinstalled without Timestamp/SplashScreen;
+  `LogOutput.log` has 0 TypeLoadExceptions, 0 HarmonyX warnings, no Splash error; 24 plugins load; the only warnings
+  are Il2CppInterop notes from the Tool Belt plugin that also appear without Vortex.
 - ⬜ MelonLoader refusal, top-10 mods, clean install, collection — not yet tested in Vortex.
 
 ### Known issues / notes
