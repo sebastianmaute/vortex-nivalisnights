@@ -70,4 +70,25 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ## Status
 
-`0.1.0` — first implementation; unit-tested, smoke-tested against a mocked Vortex API, not yet tested in Vortex.
+`0.1.0` — unit-tested, and tested in Vortex 2.7.2 on 2026-10-04:
+
+- ✅ Extension loads; game discovered via Steam; BepInEx pack (#25) downloaded from Nexus and installed by
+  modtype-bepinex as "Bepis Injector Extensible" (mod type `bepinex-injector`).
+- ✅ Trainer, ModKit, Ambience installed by `nivalisnights-bepinex-anchored` (type `bepinex-root`), deployed to
+  `BepInEx/plugins/...` — no doubled paths, Trainer docs not dumped in the game root.
+- ✅ Game launched from Vortex: BepInEx 6.0.0-be.788 loaded 25 plugins, mods active at the main menu.
+- ✅ Pre-existing manually installed files were kept as `*.vortex_backup` and replaced by links (restored on purge).
+- ⬜ MelonLoader refusal, top-10 mods, clean install, collection — not yet tested in Vortex.
+
+### Known issues / notes
+
+- **Pack extras**: the #25 pack ships the *Timestamp* plugin (`BepInEx/plugins/Tobey`) and the *BepInEx.SplashScreen*
+  patcher. They cause ~450 harmless `TypeLoadException` / HarmonyX warnings in `LogOutput.log` and a misleading
+  "[Splash] … assuming preloader/chainloader has crashed" error, even though startup completes. Manual installs often
+  omit them. Possible follow-up: a priority-<10 installer for the pack that drops them.
+- **Exit crash is the game's**: `0xc0000005` in `UnityPlayer.dll` on quit also happens without Vortex (Windows event
+  log shows it on most exits since 2026-10-02).
+- **Deployment method**: with the staging folder on another drive than the game, Vortex uses symlinks. Putting the
+  staging folder on the game's drive enables hardlinks (no elevation needed).
+- `BepInEx.cfg` is deployed from the pack mod; BepInEx rewrites it through the link into the staging folder on first run.
+  The extension's default sets `[Logging.Console] Enabled = false` (same as the pack).
