@@ -7,7 +7,7 @@ Title: `Review: Nivalis Nights`
 Answers to prepare (adapt to the form's current fields):
 
 - **Game:** Nivalis Nights — https://www.nexusmods.com/nivalisnights (Steam app 1488490; Epic announced, not released)
-- **Extension page:** *(Nexus Mods URL after upload)*
+- **Extension page:** https://www.nexusmods.com/site/mods/2413
 - **Version:** 0.3.0
 - **Source code:** https://github.com/sebastianmaute/vortex-nivalisnights (EUPL-1.2)
 - **Modding framework:** BepInEx 6 IL2CPP (Unity 2020.3, IL2CPP). Registers with the bundled `modtype-bepinex` and uses

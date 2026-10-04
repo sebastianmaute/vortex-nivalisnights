@@ -2,7 +2,8 @@
 
 A [Vortex](https://www.nexusmods.com/about/vortex/) game extension for
 [Nivalis Nights](https://store.steampowered.com/app/1488490/) ([Nexus Mods](https://www.nexusmods.com/nivalisnights)).
-Install it from Vortex's Extensions tab or from its Nexus Mods page; this repository holds the source.
+**Download:** [Nexus Mods](https://www.nexusmods.com/site/mods/2413) or Vortex's Extensions tab (once approved by the Vortex team). This repository
+holds the source; the research behind it is in [vortex-extension-groundwork](https://github.com/sebastianmaute/vortex-extension-groundwork).
 
 ## What it does
 
