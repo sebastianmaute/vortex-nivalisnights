@@ -1,0 +1,9 @@
+{
+  "source": "NivalisFIFO 2 1 2026-09-30T04-38Z uKkjMr4KE.zip",
+  "nexusModId": 2,
+  "files": [
+    "BepInEx\\",
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisFifo.dll"
+  ]
+}

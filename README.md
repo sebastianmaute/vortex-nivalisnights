@@ -82,16 +82,21 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   `LogOutput.log` has 0 TypeLoadExceptions, 0 HarmonyX warnings, no Splash error; 24 plugins load; the only warnings
   are Il2CppInterop notes from the Tool Belt plugin that also appear without Vortex.
 - ✅ 0.2.2 re-test: splash GUI deployed as `Nivalis Nights.SplashScreen.GUI.exe`, not renamed at launch (still
-  hard-linked), no external changes reported by Vortex, 0 `[Error]` lines (the false Splash "crashed" error is gone),
-  24 plugins, console and splash both enabled. The ~450 TypeLoad warnings from the splash patcher remain (accepted).
-- ⬜ MelonLoader refusal, top-10 mods, clean install, collection — not yet tested in Vortex.
+  hard-linked), no external changes reported by Vortex, 24 plugins, console and splash both enabled. (That run had
+  no Splash "crashed" error, but it reappeared later — it is intermittent, see Known issues.) The ~450 TypeLoad warnings from the splash patcher remain (accepted).
+- ✅ Clean install (vanilla game folder) + 23 popular mods downloaded via "Mod Manager Download" (two `.rar`): 22
+  installed correctly by our installers (anchored, loose plugin with/without folder, wrapped archive, mod with a
+  config file); 24 plugins load, nothing loaded twice. Boat Decor was mis-deployed (doubled path) because of an
+  extensionless `LICENSE` file → fixed in 0.2.3, all 23 archives are now regression tests.
+- ⬜ MelonLoader refusal, Save Editor (standalone exe), collection (none exist on Nexus yet) — not yet tested in Vortex.
 
 ### Known issues / notes
 
 - **Pack extras**: the #25 pack ships the *Timestamp* plugin and the *BepInEx.SplashScreen* patcher. Timestamp is left
   out (it only fetches and logs the time). The splash screen is kept by choice (0.2.1); it is the likely source of
   ~450 harmless `TypeLoadException` warnings (its lookup of the BepInEx 5 type `BepInEx.ThreadingHelper` scans all
-  assemblies) and of a false "[Splash] … chainloader has crashed" message — the game still starts normally.
+  assemblies) and of an intermittent false "[Splash] … chainloader has crashed" message (the flood delays the log lines the
+  splash window waits for) — the game still starts normally.
   Existing installs: right-click the BepInEx mod → Reinstall.
 - **Splash screen settings** (`BepInEx/config/BepInEx.SplashScreen.cfg`): it shows only while the BepInEx console is
   off unless `OnlyNoConsole = false`. With its default `RenameExe = true` it runs

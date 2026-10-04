@@ -1,0 +1,8 @@
+{
+  "source": "Unstuck 21 1.0.0 2026-10-01T16-38Z Q3q6SEN3x.zip",
+  "nexusModId": 21,
+  "files": [
+    "BepInEx\\plugins\\NivalisUnstuck\\NivalisUnstuck.dll",
+    "BepInEx\\plugins\\NivalisUnstuck\\NivalisUnstuck README.txt"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "source": "2x Shelf Life 11 1.1.2 2026-10-03T01-27Z MryTuKFCz.zip",
+  "nexusModId": 11,
+  "files": [
+    "BepInEx\\plugins\\LongerIngredientShelfLife.dll",
+    "LICENSE.txt",
+    "README.txt"
+  ]
+}

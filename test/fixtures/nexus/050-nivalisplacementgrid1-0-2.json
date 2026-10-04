@@ -1,0 +1,10 @@
+{
+  "source": "NivalisPlacementGrid1.0.2 50 1.0.2 2026-10-03T17-11Z 9g6kdiIVA.zip",
+  "nexusModId": 50,
+  "files": [
+    "BepInEx\\",
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisPlacementGrid\\",
+    "BepInEx\\plugins\\NivalisPlacementGrid\\NivalisPlacementGrid.dll"
+  ]
+}

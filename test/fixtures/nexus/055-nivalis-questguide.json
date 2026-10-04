@@ -1,0 +1,9 @@
+{
+  "source": "Nivalis QuestGuide 55 1 2026-10-03T14-33Z UXVQJNxbU.zip",
+  "nexusModId": 55,
+  "files": [
+    "BepInEx\\",
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\Nivalis.QuestGuide.dll"
+  ]
+}

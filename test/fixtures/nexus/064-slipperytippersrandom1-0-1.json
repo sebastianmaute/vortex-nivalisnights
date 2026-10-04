@@ -1,0 +1,11 @@
+{
+  "source": "SlipperyTippersrandom1.0.1 64 1.0.1 2026-10-04T05-43Z kMZ8yuiqc.zip",
+  "nexusModId": 64,
+  "files": [
+    "SlipperyTippersrandom1.0.1\\",
+    "SlipperyTippersrandom1.0.1\\BepInEx\\",
+    "SlipperyTippersrandom1.0.1\\BepInEx\\plugins\\",
+    "SlipperyTippersrandom1.0.1\\BepInEx\\plugins\\SlipperyTippersRandom.dll",
+    "SlipperyTippersrandom1.0.1\\README.txt"
+  ]
+}

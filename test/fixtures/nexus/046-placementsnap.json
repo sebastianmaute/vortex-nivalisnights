@@ -1,0 +1,12 @@
+{
+  "source": "PlacementSnap 46 1 2026-10-03T06-55Z kMZ8yuinz.rar",
+  "nexusModId": 46,
+  "files": [
+    "BepInEx\\config\\local.nivalis.placementsnap.cfg",
+    "BepInEx\\plugins\\NivalisPlacementSnap\\NivalisPlacementSnap.dll",
+    "BepInEx\\plugins\\NivalisPlacementSnap\\",
+    "BepInEx\\config\\",
+    "BepInEx\\plugins\\",
+    "BepInEx\\"
+  ]
+}

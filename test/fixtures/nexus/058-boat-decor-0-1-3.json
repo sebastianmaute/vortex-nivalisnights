@@ -1,0 +1,10 @@
+{
+  "source": "Boat Decor 0.1.3 58 0.1.3 2026-10-03T17-16Z 25KwnCOAp.zip",
+  "nexusModId": 58,
+  "files": [
+    "BepInEx\\plugins\\NivalisBoatDecor\\NivalisBoatDecor.dll",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ]
+}

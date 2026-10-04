@@ -1,0 +1,10 @@
+{
+  "source": "NivalisToolBelt V1.0.0 36 1 2026-10-02T16-28Z LbXAazoZM.zip",
+  "nexusModId": 36,
+  "files": [
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisToolBelt\\LICENSE.txt",
+    "BepInEx\\plugins\\NivalisToolBelt\\NivalisToolBelt.dll",
+    "BepInEx\\plugins\\NivalisToolBelt\\README.md"
+  ]
+}

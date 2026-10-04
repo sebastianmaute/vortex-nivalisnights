@@ -1,0 +1,10 @@
+{
+  "source": "NivalisConfigManager1.0.1 38 1.0.1 2026-10-03T05-55Z JNPSUXRzR.zip",
+  "nexusModId": 38,
+  "files": [
+    "BepInEx\\",
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisConfigManager\\",
+    "BepInEx\\plugins\\NivalisConfigManager\\NivalisConfigManager.dll"
+  ]
+}

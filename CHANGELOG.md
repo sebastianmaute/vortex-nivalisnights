@@ -1,6 +1,13 @@
 # Changelog
 
-## 0.2.2 — unreleased
+## 0.2.3 — unreleased
+
+- Docs are also recognised by name with or without extension (`LICENSE`, `COPYING`, `README`, …). Boat Decor ships an
+  extensionless `LICENSE` next to `BepInEx/`, so 0.2.2 declined it and Vortex's fallback + the `bepinex-plugin` mod type
+  deployed it to `BepInEx/plugins/BepInEx/plugins/...`.
+- Regression suite over 23 real Nexus archives (`test/fixtures/nexus/`).
+
+## 0.2.2 — 2026-10-04 (dev build)
 
 - Deploy the splash GUI as `Nivalis Nights.SplashScreen.GUI.exe` — the name BepInEx.SplashScreen launches. It renamed
   the shipped `BepInEx.SplashScreen.GUI.exe` at every game start, which Vortex reported as an external deletion

@@ -1,0 +1,9 @@
+{
+  "source": "NivalisGreenhouseTravel 1.1 45 1.1 2026-10-03T06-45Z XaJ3NLwtF.zip",
+  "nexusModId": 45,
+  "files": [
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisGreenhouseTravel\\NivalisGreenhouseTravel.dll",
+    "README.txt"
+  ]
+}

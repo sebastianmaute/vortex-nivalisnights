@@ -15,7 +15,12 @@ const dataFiles = (files: string[]): string[] => files.filter((f) => !isDir(f));
 
 /** Readme-style files: dropped when they would land in a shared folder (conflict-prone, useless there). */
 const DOC_EXTENSIONS = new Set([".md", ".txt", ".pdf", ".url", ".html", ".png", ".jpg", ".jpeg", ".gif", ".webp"]);
-export const isDoc = (file: string): boolean => DOC_EXTENSIONS.has(extOf(file));
+// Recognised by name too, with or without an extension (e.g. an extensionless "LICENSE" — Boat Decor ships one).
+const DOC_NAMES = /^(license|licence|copying|notice|readme|changelog|changes|authors|credits|contributors)(\.[a-z]{2})?(\.(md|txt|rst))?$/i;
+export const isDoc = (file: string): boolean => {
+  const base = path.basename(file.replace(/[\\/]+$/, ""));
+  return DOC_EXTENSIONS.has(extOf(base)) || DOC_NAMES.test(base);
+};
 
 const unsupported = (): Promise<types.ISupportedResult> =>
   Promise.resolve({ supported: false, requiredFiles: [] });

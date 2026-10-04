@@ -1,0 +1,9 @@
+{
+  "source": "NivalisBusinessTravel 1.0 66 1 2026-10-04T01-35Z azNILbeu5.zip",
+  "nexusModId": 66,
+  "files": [
+    "BepInEx\\plugins\\",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\NivalisBusinessTravel.dll",
+    "README.txt"
+  ]
+}

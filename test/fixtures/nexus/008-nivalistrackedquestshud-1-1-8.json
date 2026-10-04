@@ -1,0 +1,8 @@
+{
+  "source": "NivalisTrackedQuestsHUD 1.1.8 8 1.1.8 2026-10-03T22-23Z CY2o5qVhw.zip",
+  "nexusModId": 8,
+  "files": [
+    "BepInEx\\plugins\\NivalisTrackedQuestsHUD\\NivalisTrackedQuestsHUD.dll",
+    "README.txt"
+  ]
+}
