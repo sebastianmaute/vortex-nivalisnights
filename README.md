@@ -88,6 +88,8 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   installed correctly by our installers (anchored, loose plugin with/without folder, wrapped archive, mod with a
   config file); 24 plugins load, nothing loaded twice. Boat Decor was mis-deployed (doubled path) because of an
   extensionless `LICENSE` file → fixed in 0.2.3, all 23 archives are now regression tests.
+  Re-test after reinstalling Boat Decor with 0.2.3/0.2.4: claimed by the anchored installer, loads from
+  `BepInEx/plugins/NivalisBoatDecor/`, 24 plugins, no Buggy-installer errors.
 - ⬜ MelonLoader refusal, Save Editor (standalone exe), collection (none exist on Nexus yet) — not yet tested in Vortex.
 
 ### Known issues / notes
@@ -112,5 +114,7 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   purge step is hidden behind the "busy" overlay and Vortex appears stuck at "Purging previous deployment". It's safe
   to force-close at that point (nothing is purged or moved before the dialog). Workaround: deploy normally first so
   pending external changes are resolved, then move the staging folder.
+- **Empty-folder cleanup** (`requiresCleanup`, 0.2.4): Vortex removes empty folders it created only after a deploy that
+  removed files, or on purge — not on every deploy.
 - `BepInEx.cfg` is deployed from the pack mod; BepInEx rewrites it through the link into the staging folder on first run.
   The extension's default sets `[Logging.Console] Enabled = false` (same as the pack).
