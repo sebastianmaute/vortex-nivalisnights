@@ -91,5 +91,9 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   log shows it on most exits since 2026-10-02).
 - **Deployment method**: with the staging folder on another drive than the game, Vortex uses symlinks. Putting the
   staging folder on the game's drive enables hardlinks (no elevation needed).
+- **Vortex bug (not this extension)**: when changing the staging folder, an "External Changes" dialog raised by the
+  purge step is hidden behind the "busy" overlay and Vortex appears stuck at "Purging previous deployment". It's safe
+  to force-close at that point (nothing is purged or moved before the dialog). Workaround: deploy normally first so
+  pending external changes are resolved, then move the staging folder.
 - `BepInEx.cfg` is deployed from the pack mod; BepInEx rewrites it through the link into the staging folder on first run.
   The extension's default sets `[Logging.Console] Enabled = false` (same as the pack).
