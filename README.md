@@ -90,6 +90,10 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   ~450 harmless `TypeLoadException` warnings (its lookup of the BepInEx 5 type `BepInEx.ThreadingHelper` scans all
   assemblies) and of a false "[Splash] … chainloader has crashed" message — the game still starts normally.
   Existing installs: right-click the BepInEx mod → Reinstall.
+- **Splash screen settings** (`BepInEx/config/BepInEx.SplashScreen.cfg`): it shows only while the BepInEx console is
+  off unless `OnlyNoConsole = false`. With its default `RenameExe = true` it runs
+  `Nivalis Nights.SplashScreen.GUI.exe`, which is the name the extension deploys (0.2.2); setting `RenameExe = false`
+  would make it rename the file back and Vortex would report an external change.
 - **Installer order**: our mod installers run at 21–23, ahead of the 25 slot where some community extensions (e.g.
   Bannerlord's) mis-answer for other games and log "Buggy installer" errors.
 - **Exit crash is the game's**: `0xc0000005` in `UnityPlayer.dll` on quit also happens without Vortex (Windows event

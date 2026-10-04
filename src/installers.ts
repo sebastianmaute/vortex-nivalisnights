@@ -2,7 +2,7 @@ import * as path from "path";
 
 import type { types } from "@nexusmods/vortex-api";
 
-import { GAME_ID, MODTYPE_BEPINEX_INJECTOR, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "./common";
+import { EXECUTABLE, GAME_ID, MODTYPE_BEPINEX_INJECTOR, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "./common";
 
 // Archive entries reach installers with path.sep separators, but some extraction backends
 // produce "/" — every helper here accepts both.
@@ -64,6 +64,12 @@ export function testBepInExPack(files: string[], gameId: string): Promise<types.
 
 export const INJECTOR_NAME = "Bepis Injector Extensible";
 
+// BepInEx.SplashScreen (RenameExe=true, its default) launches "<process name>.SplashScreen.GUI.exe" and
+// renames the shipped "BepInEx.SplashScreen.GUI.exe" to that name if it is missing. Renaming a deployed
+// file looks like an external deletion to Vortex, so deploy it under the final name right away.
+const SPLASH_GUI_ORIG = "bepinex.splashscreen.gui.exe";
+export const SPLASH_GUI_NAME = `${path.basename(EXECUTABLE, ".exe")}.SplashScreen.GUI.exe`;
+
 export function installBepInExPack(files: string[]): Promise<types.IInstallResult> {
   const data = dataFiles(files);
   const core = data.find((f) => loaderCoreAnchor(f) !== -1)!;
@@ -79,6 +85,9 @@ export function installBepInExPack(files: string[]): Promise<types.IInstallResul
     const isExtra = rel.length >= 3 && rel[0].toLowerCase() === "bepinex" && rel[1].toLowerCase() === "plugins";
     if (isExtra) {
       continue;
+    }
+    if (rel[rel.length - 1].toLowerCase() === SPLASH_GUI_ORIG) {
+      rel[rel.length - 1] = SPLASH_GUI_NAME;
     }
     instructions.push({ type: "copy", source: file, destination: rel.join(path.sep) });
   }

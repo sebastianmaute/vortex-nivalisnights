@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.2.1 — unreleased
+## 0.2.2 — unreleased
+
+- Deploy the splash GUI as `Nivalis Nights.SplashScreen.GUI.exe` — the name BepInEx.SplashScreen launches. It renamed
+  the shipped `BepInEx.SplashScreen.GUI.exe` at every game start, which Vortex reported as an external deletion
+  (and which blocked a staging-folder move behind Vortex's busy overlay).
+
+## 0.2.1 — 2026-10-04 (dev build)
 
 - Keep the pack's BepInEx.SplashScreen patcher (loading splash) — only the bundled Timestamp plugin is left out.
 

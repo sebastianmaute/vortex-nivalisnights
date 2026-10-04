@@ -58,7 +58,11 @@ describe("BepInEx loader pack", () => {
     expect(dest).toContain(p("BepInEx", "config", "BepInEx.cfg"));
     expect(dest).toContain(p("dotnet", "coreclr.dll"));
     expect(dest.filter((d) => d.startsWith(p("BepInEx", "plugins")))).toEqual([]);
-    expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.GUI.exe"));
+    // Deployed under the name the patcher launches (<process>.SplashScreen.GUI.exe), so it never renames a
+    // Vortex-deployed file at game start (which Vortex would report as an external deletion).
+    expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "Nivalis Nights.SplashScreen.GUI.exe"));
+    expect(dest).not.toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.GUI.exe"));
+    expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.GUI.exe.config"));
     expect(dest).toContain(p("BepInEx", "patchers", "BepInEx.SplashScreen", "BepInEx.SplashScreen.Patcher.BepInEx6.dll"));
     const data = files.filter((f) => !f.endsWith("\\"));
     const extras = data.filter((f) => /^BepInEx\\plugins\\/.test(f));
