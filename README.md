@@ -81,6 +81,9 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 - ✅ 0.2.0 re-test (hardlink deployment, staging on the game drive): pack reinstalled without Timestamp/SplashScreen;
   `LogOutput.log` has 0 TypeLoadExceptions, 0 HarmonyX warnings, no Splash error; 24 plugins load; the only warnings
   are Il2CppInterop notes from the Tool Belt plugin that also appear without Vortex.
+- ✅ 0.2.2 re-test: splash GUI deployed as `Nivalis Nights.SplashScreen.GUI.exe`, not renamed at launch (still
+  hard-linked), no external changes reported by Vortex, 0 `[Error]` lines (the false Splash "crashed" error is gone),
+  24 plugins, console and splash both enabled. The ~450 TypeLoad warnings from the splash patcher remain (accepted).
 - ⬜ MelonLoader refusal, top-10 mods, clean install, collection — not yet tested in Vortex.
 
 ### Known issues / notes
