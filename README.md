@@ -2,7 +2,7 @@
 
 A [Vortex](https://www.nexusmods.com/about/vortex/) game extension for
 [Nivalis Nights](https://store.steampowered.com/app/1488490/) ([Nexus Mods](https://www.nexusmods.com/nivalisnights)).
-Built on the research in [vortex-extension-groundwork](https://github.com/sebastianmaute/vortex-extension-groundwork).
+Install it from Vortex's Extensions tab or from its Nexus Mods page; this repository holds the source.
 
 ## What it does
 
@@ -55,12 +55,12 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ## Testing in Vortex — checklist
 
-> ⚠️ The game folder already contains a manually installed BepInEx and plugins. Back up
-> `E:\SteamLibrary\steamapps\common\Nivalis Nights\BepInEx` (and `winhttp.dll`, `doorstop_config.ini`, `dotnet\`)
-> before letting Vortex manage the game; Vortex will meet existing files when it deploys.
+> ⚠️ If the game folder already contains a manually installed BepInEx, back up `<game>/BepInEx`, `<game>/dotnet`,
+> `winhttp.dll`, `doorstop_config.ini` and `.doorstop_version` before letting Vortex manage the game — Vortex meets
+> existing files when it deploys (it keeps them as `*.vortex_backup` and restores them on purge).
 
-1. `npm run deploy:dev`, restart Vortex; Extensions tab shows "Game: Nivalis Nights" without errors.
-2. Games → Nivalis Nights is discovered via Steam → Manage. Staging folder must be on drive `E:` for hardlinks.
+1. `npm run deploy:dev`, restart Vortex; Extensions tab shows "Nivalis Nights" without errors.
+2. Games → Nivalis Nights is discovered via Steam → Manage. Put the staging folder on the game's drive for hardlinks.
 3. BepInEx pack is downloaded/installed as "Bepis Injector Extensible"; enable + deploy → `winhttp.dll`,
    `BepInEx/core`, `dotnet/` in the game root.
 4. Install the three sample archives (Trainer, ModKit, Ambience) → deployed under `BepInEx/plugins/...`, no doubled paths.

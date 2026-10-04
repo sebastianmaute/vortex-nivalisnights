@@ -7,7 +7,7 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 |---|---|
 | Game | Modding Tools (site) — *not* the Nivalis Nights section |
 | Mod name | `Nivalis Nights Vortex Extension` (common convention; Vortex itself shows the `info.json` name "Nivalis Nights") |
-| Category | The Vortex game-extension category the form offers (sources disagree: "Vortex > Extensions" vs "Vortex > User Extensions") |
+| Category | Vortex > User Extensions |
 | Version | `0.3.0` |
 | Language | English |
 | Summary | `Adds Nivalis Nights to Vortex: finds the game on Steam, installs BepInEx 6 (IL2CPP) automatically and installs BepInEx mods to the right place whatever the archive layout.` |
@@ -16,7 +16,7 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 | Adult content | No |
 | Requirements | None (Vortex is implied; BepInEx is downloaded automatically) — optionally list *BepInEx IL2CPP Pack for Nivalis Nights* (nivalisnights #25) as "downloaded automatically by the extension" |
 | Permissions / license | Custom: "Licensed under the EUPL-1.2 — you may use, modify and redistribute under its terms." Allow modification and conversion; upload permission: yes, under EUPL-1.2 |
-| Source | link to the GitHub repository *(only if it is made public)* |
+| Source | https://github.com/sebastianmaute/vortex-nivalisnights |
 
 ## Main file
 

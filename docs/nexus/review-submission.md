@@ -9,7 +9,7 @@ Answers to prepare (adapt to the form's current fields):
 - **Game:** Nivalis Nights — https://www.nexusmods.com/nivalisnights (Steam app 1488490; Epic announced, not released)
 - **Extension page:** *(Nexus Mods URL after upload)*
 - **Version:** 0.3.0
-- **Source code:** *(GitHub URL if public)*
+- **Source code:** https://github.com/sebastianmaute/vortex-nivalisnights (EUPL-1.2)
 - **Modding framework:** BepInEx 6 IL2CPP (Unity 2020.3, IL2CPP). Registers with the bundled `modtype-bepinex` and uses
   `customPackDownloader` to fetch nivalisnights #25 (file 48, BepInEx 6.0.0-be.788). The GitHub default would select a
   6.0.0-pre release, which the game's community plugins don't target.
