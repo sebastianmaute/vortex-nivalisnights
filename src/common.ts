@@ -5,16 +5,21 @@ export const GAME_NAME = "Nivalis Nights";
 export const STEAMAPP_ID = "1488490";
 export const EXECUTABLE = "Nivalis Nights.exe";
 
+/** Numeric Nexus Mods game id of nivalisnights (the GraphQL API wants it instead of the domain). */
+export const NEXUS_GAME_ID = 10401;
+
 /**
- * BepInEx IL2CPP Pack for Nivalis Nights (nexusmods.com/nivalisnights/mods/25), file 48 = v1.0.0.
- * Contains BepInEx 6.0.0-be.788 — the build the community's IL2CPP plugins target. Vortex's own
+ * BepInEx IL2CPP Pack for Nivalis Nights (nexusmods.com/nivalisnights/mods/25). It contains
+ * BepInEx 6 bleeding-edge builds — what the community's IL2CPP plugins target. Vortex's own
  * GitHub-based download would fetch a 6.0.0-pre release instead, which these plugins don't support.
+ * The newest MAIN file is looked up at download time (src/pack.ts); the fallback is only used
+ * when Nexus can't be reached.
  */
 export const BEPINEX_PACK = {
   modId: 25,
-  fileId: 48,
-  version: "1.0.0",
-  archiveName: "BepInEx IL2CPP Pack For Nivalis Nights v1.0.0.zip",
+  fallbackFileId: 182,
+  fallbackVersion: "1.0.1",
+  fallbackName: "BepInEx IL2CPP Pack for Nivalis Nights v1.0.1",
 } as const;
 
 /** Mod types registered by Vortex's bundled modtype-bepinex extension once the game is added to it. */

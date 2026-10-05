@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: EUPL-1.2
 import * as path from "path";
 
-import { fs } from "@nexusmods/vortex-api";
+import { fs, log } from "@nexusmods/vortex-api";
 import type { types } from "@nexusmods/vortex-api";
 
 import {
@@ -22,6 +22,7 @@ import {
   testLoosePlugin,
   testMelonLoader,
 } from "./installers";
+import { FALLBACK_PACK, resolvePackFile } from "./pack";
 
 /** Folders the BepInEx mod types deploy into — Vortex does not create them on its own. */
 const BEPINEX_DIRS = [
@@ -54,17 +55,23 @@ function registerWithBepInEx(context: types.IExtensionContext): void {
     autoDownloadBepInEx: true,
     architecture: "x64",
     unityBuild: "unityil2cpp",
-    customPackDownloader: () =>
-      Promise.resolve({
+    // Called only when no BepInEx is installed yet (or a reinstall is forced).
+    customPackDownloader: async () => {
+      const pack = await resolvePackFile(undefined, (reason) =>
+        log("warn", "BepInEx pack lookup failed, using the built-in file id", { reason, fileId: FALLBACK_PACK.fileId }),
+      );
+      log("info", "downloading BepInEx pack", pack);
+      return {
         gameId: GAME_ID,
         domainId: GAME_ID,
         modId: BEPINEX_PACK.modId,
-        fileId: BEPINEX_PACK.fileId,
-        version: BEPINEX_PACK.version,
+        fileId: pack.fileId,
+        version: pack.version,
         architecture: "x64",
-        archiveName: BEPINEX_PACK.archiveName,
+        archiveName: pack.archiveName,
         allowAutoInstall: true,
-      }),
+      };
+    },
   });
 }
 

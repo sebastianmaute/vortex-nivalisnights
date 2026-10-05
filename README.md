@@ -9,7 +9,8 @@ holds the source; the research behind it is in [vortex-extension-groundwork](htt
 
 - **Discovers the game** on Steam (app `1488490`). Epic is announced for later — add its id to `queryArgs` when known.
 - **Installs BepInEx 6 automatically**: registers the game with Vortex's bundled BepInEx extension and points it at the
-  community [BepInEx IL2CPP Pack](https://www.nexusmods.com/nivalisnights/mods/25) (file 48, BepInEx `6.0.0-be.788`).
+  community [BepInEx IL2CPP Pack](https://www.nexusmods.com/nivalisnights/mods/25). The newest main file is looked up on
+  Nexus Mods at download time, so a new pack release needs no extension update (offline fallback: file 182, v1.0.1).
   Vortex's default GitHub download would pick a `6.0.0-pre` release, which the community's IL2CPP plugins don't target.
 - **Installs mods correctly** whatever the archive layout:
 

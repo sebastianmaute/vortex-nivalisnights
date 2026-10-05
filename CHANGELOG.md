@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 — 2026-10-05
+
+- Always installs the newest BepInEx IL2CPP Pack: the newest main file of
+  [mods/25](https://www.nexusmods.com/nivalisnights/mods/25) is looked up on Nexus Mods when Vortex needs BepInEx.
+  0.3.0 had file 48 (v1.0.0) built in, which the pack author has since archived.
+- If Nexus Mods can't be reached, the built-in fallback is file 182 (v1.0.1). The Vortex log says which file was used.
+- Existing installations are not touched: Vortex only downloads the pack when BepInEx isn't installed yet.
+
 ## 0.3.0 — first public release
 
 - Licensed under EUPL-1.2; `LICENSE` ships in the extension archive.
