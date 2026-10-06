@@ -1,0 +1,11 @@
+{
+  "source": "NivalisPerformanceFix 1.0.4 57 1.0.4 2026-10-04T16-49Z iF9ug4WUC.zip",
+  "nexusModId": 57,
+  "files": [
+    "BepInEx\\plugins\\NivalisPerformanceFix\\CHANGELOG.md",
+    "BepInEx\\plugins\\NivalisPerformanceFix\\LICENSE",
+    "BepInEx\\plugins\\NivalisPerformanceFix\\NivalisPerformanceFix.dll",
+    "BepInEx\\plugins\\NivalisPerformanceFix\\README.fr.md",
+    "BepInEx\\plugins\\NivalisPerformanceFix\\README.md"
+  ]
+}

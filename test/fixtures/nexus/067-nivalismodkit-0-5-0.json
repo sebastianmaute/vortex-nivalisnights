@@ -1,0 +1,11 @@
+{
+  "source": "NivalisModKit 0.5.0 67 0.5.0 2026-10-06T02-15Z g4dMiFhtb.zip",
+  "nexusModId": 67,
+  "files": [
+    "icon.png",
+    "manifest.json",
+    "README.md",
+    "BepInEx\\plugins\\NivalisModKit.dll",
+    "BepInEx\\plugins\\NivalisModKit.xml"
+  ]
+}

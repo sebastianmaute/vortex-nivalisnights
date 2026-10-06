@@ -1,0 +1,8 @@
+{
+  "source": "A Warm Greeting After Day 33 1.0.4 75 1.0.4 2026-10-05T13-49Z mjBP8TM9A.zip",
+  "nexusModId": 75,
+  "files": [
+    "BepInEx\\plugins\\NivalisAvaGreetings\\NivalisAvaGreetings.dll",
+    "README.txt"
+  ]
+}

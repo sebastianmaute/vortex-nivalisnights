@@ -1,0 +1,8 @@
+{
+  "source": "Mod Settings Menu 1.0.0 80 1.0.0 2026-10-05T11-27Z s0WHvBc7T.zip",
+  "nexusModId": 80,
+  "files": [
+    "BepInEx\\plugins\\ModSettingsMenu\\ModSettingsMenu.dll",
+    "README.txt"
+  ]
+}

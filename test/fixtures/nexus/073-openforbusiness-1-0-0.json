@@ -1,0 +1,8 @@
+{
+  "source": "OpenForBusiness 1.0.0 73 1.0.0 2026-10-05T00-22Z VJOqPUjyn.zip",
+  "nexusModId": 73,
+  "files": [
+    "OpenForBusiness 1.0.0\\BepInEx\\plugins\\OpenForBusiness.dll",
+    "OpenForBusiness 1.0.0\\README.txt"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "NivalisCursor 1.0.0 90 1.0.0 2026-10-06T11-33Z e71bofYJd.zip",
+  "nexusModId": 90,
+  "files": [
+    "icon.png",
+    "manifest.json",
+    "README.md",
+    "BepInEx\\plugins\\NivalisCursor.dll"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "source": "Nivalis Shared Pantry 35 1.2.4 2026-10-05T09-24Z HO4nDGBt4.zip",
+  "nexusModId": 35,
+  "files": [
+    "NivalisSharedPantry_1.2.4\\BepInEx\\plugins\\NivalisSharedPantry\\NivalisSharedPantry.dll"
+  ]
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 — 2026-10-06
+
+- Archives in the Thunderstore layout (`manifest.json`, `icon.png`, `README.md` next to `BepInEx/plugins/`) are installed
+  correctly. 0.3.1 declined them because of `manifest.json`, so Vortex's fallback installer and the `bepinex-plugin` mod
+  type deployed them to `BepInEx/plugins/BepInEx/plugins/` with the metadata loose in `plugins/`. Affected: Nivalis ModKit
+  0.5.0, Nivals Borderless 1.0.0, Nivalis Free Cursor 1.0.0. Reinstall those mods after updating.
+- Regression suite now covers 48 real archives, including every mod added up to 2026-10-06.
+
 ## 0.3.1 — 2026-10-05
 
 - Always installs the newest BepInEx IL2CPP Pack: the newest main file of

@@ -1,0 +1,7 @@
+{
+  "source": "NivalisAnimationRemover 32 3 2026-10-02T13-52Z R1TXxw277.zip",
+  "nexusModId": 32,
+  "files": [
+    "NivalisAnimationRemover\\BepInEx\\plugins\\NivalisAnimationRemover\\NivalisAnimationRemover.dll"
+  ]
+}

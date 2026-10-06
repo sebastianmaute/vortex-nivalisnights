@@ -1,0 +1,8 @@
+{
+  "source": "MapAndStock 84 1.2 2026-10-06T15-18Z GVH5OPmMZ.zip",
+  "nexusModId": 84,
+  "files": [
+    "BepInEx\\plugins\\StockMarket\\StockMarket.dll",
+    "BepInEx\\plugins\\StockMarket\\README.txt"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "BetterFishing 1.0.0 83 1 2026-10-05T15-43Z pZbstclqy.zip",
+  "nexusModId": 83,
+  "files": [
+    "BepInEx\\plugins\\NivalisBetterFishing.dll",
+    "README.md"
+  ]
+}

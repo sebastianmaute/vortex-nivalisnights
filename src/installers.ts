@@ -23,6 +23,13 @@ export const isDoc = (file: string): boolean => {
   return DOC_EXTENSIONS.has(extOf(base)) || DOC_NAMES.test(base);
 };
 
+/**
+ * Thunderstore package metadata (manifest.json next to icon.png and README.md). Some Nexus uploads
+ * use that layout (Nivalis ModKit 0.5.0); outside the BepInEx folder it is never deployed.
+ */
+export const isPackageMetadata = (file: string): boolean =>
+  path.basename(file.replace(/[\\/]+$/, "")).toLowerCase() === "manifest.json";
+
 const unsupported = (): Promise<types.ISupportedResult> =>
   Promise.resolve({ supported: false, requiredFiles: [] });
 const supported = (): Promise<types.ISupportedResult> =>
@@ -153,10 +160,10 @@ export function testBepInExAnchored(files: string[], gameId: string): Promise<ty
   if (inside.length === 0) {
     return unsupported();
   }
-  // Anything outside the BepInEx folder other than docs (e.g. winhttp.dll, doorstop files) means
-  // this is a loader package or something unusual — leave it to other installers.
+  // Anything outside the BepInEx folder other than docs and package metadata (e.g. winhttp.dll,
+  // doorstop files) means this is a loader package or something unusual — leave it to other installers.
   const outside = data.filter((f) => bepinexIndex(f) === -1);
-  return outside.every(isDoc) ? supported() : unsupported();
+  return outside.every((f) => isDoc(f) || isPackageMetadata(f)) ? supported() : unsupported();
 }
 
 export function installBepInExAnchored(files: string[]): Promise<types.IInstallResult> {

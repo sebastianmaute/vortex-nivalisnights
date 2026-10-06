@@ -1,0 +1,12 @@
+{
+  "source": "Nivalis Tracked Quests HUD 8 1.1.10 2026-10-05T16-47Z JNPSUXRu6.zip",
+  "nexusModId": 8,
+  "files": [
+    "BepInEx\\plugins\\NivalisTrackedQuestsHUD\\NivalisTrackedQuestsHUD.dll",
+    "BepInEx\\plugins\\NivalisTrackedQuestsHUD\\icon.png",
+    "BepInEx\\plugins\\NivalisTrackedQuestsHUD\\manifest.json",
+    "CHANGELOG.md",
+    "MOD-README.md",
+    "README.txt"
+  ]
+}
