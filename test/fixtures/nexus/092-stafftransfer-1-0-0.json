@@ -1,0 +1,8 @@
+{
+  "source": "StaffTransfer 1.0.0 92 1 2026-10-06T18-36Z 3ISdEALou.zip",
+  "nexusModId": 92,
+  "files": [
+    "BepInEx\\plugins\\NivalisStaffTransfer.dll",
+    "README.md"
+  ]
+}
