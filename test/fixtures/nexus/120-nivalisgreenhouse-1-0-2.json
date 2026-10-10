@@ -1,0 +1,19 @@
+{
+  "source": "NivalisGreenhouse 1.0.2 120 1.0.2 2026-10-09T21-53Z Q3q6SENdP.zip",
+  "nexusModId": 120,
+  "files": [
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_hire_card.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_hire_row.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_hire_screen.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_inventory_item.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_inventory_screen.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_staff_row.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_staff_screen.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\layout_transfer_open.txt",
+    "BepInEx\\plugins\\NivalisGreenhouse\\NivalisGreenhouse.dll",
+    "BepInEx\\plugins\\NivalisGreenhouse\\Icons\\gardener_background.png",
+    "BepInEx\\plugins\\NivalisGreenhouse\\Icons\\gardener_skill.png",
+    "BepInEx\\plugins\\NivalisGreenhouse\\Icons\\planter.png",
+    "README.txt"
+  ]
+}

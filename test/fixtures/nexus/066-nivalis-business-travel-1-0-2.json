@@ -1,0 +1,12 @@
+{
+  "source": "Nivalis Business Travel 1.0.2 66 1.0.2 2026-10-09T22-43Z ofwze7qpW.zip",
+  "nexusModId": 66,
+  "files": [
+    "BepInEx\\plugins\\NivalisBusinessTravel\\NivalisBusinessTravel.dll",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\README.txt",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\locales\\en.json",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\locales\\ja.json",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\locales\\zh-CN.json",
+    "BepInEx\\plugins\\NivalisBusinessTravel\\locales\\zh-TW.json"
+  ]
+}

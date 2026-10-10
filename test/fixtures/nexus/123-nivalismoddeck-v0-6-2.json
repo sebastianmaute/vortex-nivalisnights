@@ -1,0 +1,8 @@
+{
+  "source": "NivalisModDeck v0.6.2 123 v0.6.2 2026-10-10T00-56Z 6d7Zl9Ey8.zip",
+  "nexusModId": 123,
+  "files": [
+    "BepInEx\\plugins\\NivalisModDeck\\READ-ME.txt",
+    "BepInEx\\plugins\\NivalisModDeck\\NivalisModDeck.dll"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "source": "NivalisModKit 67 0.6.2 2026-10-09T22-49Z JNPSUXREV.zip",
+  "nexusModId": 67,
+  "files": [
+    "icon.png",
+    "manifest.json",
+    "README.md",
+    "BepInEx\\plugins\\NivalisModKit.dll",
+    "BepInEx\\plugins\\NivalisModKit.xml"
+  ]
+}

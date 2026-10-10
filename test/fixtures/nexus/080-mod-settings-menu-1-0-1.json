@@ -1,0 +1,12 @@
+{
+  "source": "Mod Settings Menu 1.0.1 80 1.0.1 2026-10-08T22-53Z IhEiAWb9J.zip",
+  "nexusModId": 80,
+  "files": [
+    "README.txt",
+    "BepInEx\\plugins\\ModSettingsMenu\\ModSettingsMenu.dll",
+    "BepInEx\\plugins\\ModSettingsMenu\\locales\\en.json",
+    "BepInEx\\plugins\\ModSettingsMenu\\locales\\ja.json",
+    "BepInEx\\plugins\\ModSettingsMenu\\locales\\zh-CN.json",
+    "BepInEx\\plugins\\ModSettingsMenu\\locales\\zh-TW.json"
+  ]
+}
