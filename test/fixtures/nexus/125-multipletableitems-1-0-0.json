@@ -1,0 +1,8 @@
+{
+  "source": "MultipleTableItems 1.0.0 125 1 2026-10-10T12-10Z VJOqPUjI0.zip",
+  "nexusModId": 125,
+  "files": [
+    "BepInEx\\plugins\\NivalisMultipleTableItems.dll",
+    "README.md"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "Nivalis.HudOverhaul 1.1.3 20 6 2026-10-11T10-31Z qSC7YQUi5.zip",
+  "nexusModId": 20,
+  "files": [
+    "BepInEx\\plugins\\Nivalis.ModCompanion.dll",
+    "BepInEx\\plugins\\Nivalis.HudOverhaul.dll"
+  ]
+}

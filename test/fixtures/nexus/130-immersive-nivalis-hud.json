@@ -1,0 +1,12 @@
+{
+  "source": "Immersive Nivalis - HUD 130 1.0.2 2026-10-11T16-37Z NLUEXa1sy.zip",
+  "nexusModId": 130,
+  "files": [
+    "BepInEx\\plugins\\NivalisHud\\NivalisHud.dll",
+    "BepInEx\\plugins\\NivalisHud\\README.txt",
+    "BepInEx\\plugins\\NivalisHud\\locales\\en.json",
+    "BepInEx\\plugins\\NivalisHud\\locales\\ja.json",
+    "BepInEx\\plugins\\NivalisHud\\locales\\zh-CN.json",
+    "BepInEx\\plugins\\NivalisHud\\locales\\zh-TW.json"
+  ]
+}
