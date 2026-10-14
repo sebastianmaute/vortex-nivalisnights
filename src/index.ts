@@ -85,7 +85,7 @@ function main(context: types.IExtensionContext): boolean {
     // Remove empty folders left behind by removed/moved mods (many mods ship their own plugin folder).
     // With the default directoryCleaning "tag", only folders Vortex created are removed.
     requiresCleanup: true,
-    logo: "gameart.jpg",
+    logo: "gameart.png",
     executable: () => EXECUTABLE,
     requiredFiles: [EXECUTABLE, "GameAssembly.dll"],
     // Default target for archives no installer claims: the game root, because Nivalis Nights mods

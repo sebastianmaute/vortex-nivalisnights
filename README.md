@@ -49,7 +49,7 @@ npm run package     # build + release/game-nivalisnights-<version>.zip (files at
 ```
 
 Layout: `src/index.ts` (registration), `src/installers.ts` (pure installer logic), `src/common.ts` (ids, priorities),
-`assets/` (`gameart.jpg` 400×600, `BepInEx.cfg`, `nexus/header-640x360.jpg` for the mod page),
+`assets/` (`gameart.png` 640×360, no text, `BepInEx.cfg`, `nexus/header-640x360.jpg` for the mod page),
 `test/fixtures/` (file lists from real archives).
 
 The TypeScript build uses plain `tsc` (CommonJS). `@nexusmods/vortex-api` is mapped to its type file via `paths`

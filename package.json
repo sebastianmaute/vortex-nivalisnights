@@ -1,6 +1,6 @@
 {
   "name": "game-nivalisnights",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Vortex support for Nivalis Nights",
   "author": "Sebastian Maute",
   "license": "EUPL-1.2",
@@ -14,7 +14,8 @@
     "deploy:dev": "npm run build && node scripts/deploy-dev.mjs"
   },
   "config": {
-    "game": "Nivalis Nights"
+    "game": "Nivalis Nights",
+    "nexusGameId": 10401
   },
   "devDependencies": {
     "@nexusmods/vortex-api": "2.7.2",

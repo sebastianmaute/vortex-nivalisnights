@@ -7,8 +7,8 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 |---|---|
 | Game | Modding Tools (site) — *not* the Nivalis Nights section |
 | Mod name | `Nivalis Nights Vortex Extension` (common convention; Vortex itself shows the `info.json` name "Nivalis Nights") |
-| Category | Vortex > User Extensions |
-| Version | `0.3.0` |
+| Category | Modding Tools > Vortex Extensions (Vortex lists extensions from this category automatically) |
+| Version | `0.3.3` — must match `info.json` |
 | Language | English |
 | Summary | `Adds Nivalis Nights to Vortex: finds the game on Steam, installs BepInEx 6 (IL2CPP) automatically and installs BepInEx mods to the right place whatever the archive layout.` |
 | Description | contents of [`description.bbcode`](description.bbcode) |
@@ -22,11 +22,11 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 
 | Field | Value |
 |---|---|
-| File | `release/game-nivalisnights-0.3.0.zip` |
+| File | `release/game-nivalisnights-0.3.3.zip` |
 | File name | `Nivalis Nights Vortex Extension` |
-| Version | `0.3.0` |
-| Category | Main Files |
-| Description | `Vortex extension for Nivalis Nights 0.3.0 — first public release.` |
+| Version | `0.3.3` |
+| Category | Main Files — archive the previous version so there is a single main file |
+| Description | `Vortex extension for Nivalis Nights 0.3.3 — gameId for Vortex's automatic listing, new 640×360 game art.` |
 
 ## Changelog (Nexus "Logs" tab)
 
@@ -40,5 +40,8 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 
 ## After uploading
 
-Submit the review request — see [`review-submission.md`](review-submission.md). The file stays under moderation until
-the Vortex team approves it and adds it to the extension manifest.
+Nothing else to do. Since October 2026 Vortex picks up extensions from the Vortex Extensions category within about two
+hours — no GitHub review request — as long as `info.json` has the numerical `gameId` (10401) and it is the only (or most
+endorsed) extension for the game. The Vortex team reviews listed extensions periodically. See
+https://github.com/Nexus-Mods/Vortex/wiki/How-to-package-a-game-extension. [`review-submission.md`](review-submission.md)
+is kept for reference only.

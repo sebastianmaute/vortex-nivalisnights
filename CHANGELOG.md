@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3 — 2026-10-14
+
+- Packaging for Vortex's new listing process (extensions in the Vortex Extensions category are picked up automatically):
+  `info.json` now has `gameId: 10401`, the numerical Nexus Mods id of Nivalis Nights.
+- Game art is now `gameart.png`, 640×360 landscape without text, as the packaging guide requires. It replaces the 400×600
+  `gameart.jpg`.
+
 ## 0.3.2 — 2026-10-06
 
 - Archives in the Thunderstore layout (`manifest.json`, `icon.png`, `README.md` next to `BepInEx/plugins/`) are installed
