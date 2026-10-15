@@ -1,0 +1,8 @@
+{
+  "source": "NivalisToolkit v0.7.0 122 v0.7.0 2026-10-14T02-13Z vBhDs0ZLw.zip",
+  "nexusModId": 122,
+  "files": [
+    "BepInEx\\plugins\\NivalisToolkit\\NivalisToolkit.dll",
+    "BepInEx\\plugins\\NivalisToolkit\\README.txt"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "source": "Nivalis Unofficial Patch 14 0.4.3 2026-10-14T02-00Z pZbstcl1X.zip",
+  "nexusModId": 14,
+  "files": [
+    "BepInEx\\plugins\\NivalisUnofficialPatch\\NivalisUnofficialPatch.dll",
+    "BepInEx\\plugins\\NivalisUnofficialPatch\\icon.png",
+    "BepInEx\\plugins\\NivalisUnofficialPatch\\manifest.json",
+    "CHANGELOG.txt",
+    "README.md"
+  ]
+}

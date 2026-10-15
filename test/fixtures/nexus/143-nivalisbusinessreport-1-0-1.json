@@ -1,0 +1,9 @@
+{
+  "source": "NivalisBusinessReport 1.0.1 143 1.0.1 2026-10-14T20-44Z 5qneCYP4y.zip",
+  "nexusModId": 143,
+  "files": [
+    "BepInEx\\plugins\\NivalisBusinessReport\\NivalisBusinessReport.dll",
+    "BepInEx\\plugins\\NivalisBusinessReport\\Icons\\report.png",
+    "README.txt"
+  ]
+}

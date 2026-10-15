@@ -1,0 +1,10 @@
+{
+  "source": "NivalisLedger 86 0.1.5 2026-10-09T22-53Z tczvpZ6BZ.zip",
+  "nexusModId": 86,
+  "files": [
+    "icon.png",
+    "manifest.json",
+    "README.md",
+    "BepInEx\\plugins\\NivalisLedger.dll"
+  ]
+}

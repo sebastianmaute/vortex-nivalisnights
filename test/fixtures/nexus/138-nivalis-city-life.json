@@ -1,0 +1,11 @@
+{
+  "source": "Nivalis City Life 138 1.0.0 2026-10-14T01-33Z OPDCGV8ho.zip",
+  "nexusModId": 138,
+  "files": [
+    "BepInEx\\plugins\\NivalisCityLife\\NivalisCityLife.dll",
+    "BepInEx\\plugins\\NivalisCityLife\\icon.png",
+    "BepInEx\\plugins\\NivalisCityLife\\manifest.json",
+    "CHANGELOG.md",
+    "README.md"
+  ]
+}

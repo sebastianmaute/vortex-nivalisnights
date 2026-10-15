@@ -1,0 +1,7 @@
+{
+  "source": "NivalisEnhancedScan1.3.0 119 1.3.0 2026-10-13T09-02Z zpLhbt7R2.zip",
+  "nexusModId": 119,
+  "files": [
+    "BepInEx\\plugins\\NivalisEnhancedScan\\NivalisEnhancedScan.dll"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "NivalisInventoryTabs 0.2.0 129 0.2.0 2026-10-13T08-57Z yucmkMgfC.zip",
+  "nexusModId": 129,
+  "files": [
+    "BepInEx\\plugins\\NivalisInventoryTabs\\README.txt",
+    "BepInEx\\plugins\\NivalisInventoryTabs\\NivalisInventoryTabs.dll"
+  ]
+}

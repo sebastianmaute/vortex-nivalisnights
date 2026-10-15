@@ -1,0 +1,10 @@
+{
+  "source": "NivalisBorderless 89 1.0.1 2026-10-10T12-19Z uKkjMr4eF.zip",
+  "nexusModId": 89,
+  "files": [
+    "icon.png",
+    "manifest.json",
+    "README.md",
+    "BepInEx\\plugins\\NivalisBorderless.dll"
+  ]
+}

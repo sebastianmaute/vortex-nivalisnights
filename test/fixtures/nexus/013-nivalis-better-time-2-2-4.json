@@ -1,0 +1,11 @@
+{
+  "source": "Nivalis Better Time 13 2.2.4 2026-10-14T01-58Z AW3gIhzJn.zip",
+  "nexusModId": 13,
+  "files": [
+    "BepInEx\\plugins\\NivalisSlowDays\\NivalisSlowDays.dll",
+    "BepInEx\\plugins\\NivalisSlowDays\\icon.png",
+    "BepInEx\\plugins\\NivalisSlowDays\\manifest.json",
+    "CHANGELOG.txt",
+    "README.md"
+  ]
+}
