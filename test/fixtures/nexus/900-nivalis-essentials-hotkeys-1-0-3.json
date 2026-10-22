@@ -1,5 +1,5 @@
 {
-  "source": "Nivalis Essentials Hotkeys 1.0.2.zip (collection bundle)",
+  "source": "Nivalis Essentials Hotkeys 1.0.3.zip (collection bundle)",
   "nexusModId": 0,
   "files": [
     "BepInEx\\config\\brenner.nivalis.moddeck.cfg",
@@ -11,6 +11,8 @@
     "BepInEx\\config\\local.nivalis.questguide.cfg",
     "BepInEx\\config\\Mod Companion.cfg",
     "BepInEx\\config\\nivalis.ambience.cfg",
+    "BepInEx\\config\\NivalisBigTipper.cfg",
+    "BepInEx\\config\\NivalisHomeOffice.cfg",
     "README.txt"
   ]
 }
