@@ -2,8 +2,10 @@
 
 A [Vortex](https://www.nexusmods.com/about/vortex/) game extension for
 [Nivalis Nights](https://store.steampowered.com/app/1488490/) ([Nexus Mods](https://www.nexusmods.com/nivalisnights)).
-**Download:** [Nexus Mods](https://www.nexusmods.com/site/mods/2413) or Vortex's Extensions tab (once approved by the Vortex team). This repository
-holds the source; the research behind it is in [vortex-extension-groundwork](https://github.com/sebastianmaute/vortex-extension-groundwork).
+**Download:** [Nexus Mods](https://www.nexusmods.com/site/mods/2413) or Vortex's Extensions tab (Vortex lists extensions
+from the Nexus Mods Vortex Extensions category automatically). This repository holds the source; the research behind it
+is in [vortex-extension-groundwork](https://github.com/sebastianmaute/vortex-extension-groundwork). Version history:
+[CHANGELOG.md](CHANGELOG.md).
 
 ## What it does
 
@@ -19,13 +21,14 @@ holds the source; the research behind it is in [vortex-extension-groundwork](htt
 | BepInEx pack (`winhttp.dll`, `BepInEx/core`, `dotnet/`) | Nexus #25 | `nivalisnights-bepinex-pack` (5) — loader + splash screen, bundled Timestamp plugin dropped | game root |
 | `plugins/` / `config/` / `patchers/` at root | — | modtype-bepinex root (prio 10) | `BepInEx/` |
 | FOMOD | — | Vortex FOMOD (prio 10/20) | game root |
-| **`BepInEx/...`** relative to game root (the common case) | Trainer, ModKit, Ambience | `nivalisnights-bepinex-anchored` (22) | `BepInEx/` |
+| **`BepInEx/...`** relative to game root (the common case), also with Thunderstore metadata (`manifest.json`) or C# example source beside `BepInEx/` | Trainer, ModKit, Ambience, Better Time 2.2.15 | `nivalisnights-bepinex-anchored` (22) | `BepInEx/` |
 | Bare DLL(s), optionally in a mod folder | — | `nivalisnights-loose-plugin` (23) | `BepInEx/plugins/` |
 | MelonLoader build (`Mods/*.dll`, `MelonLoader/`) | Trainer's ML file | `nivalisnights-melonloader` (21) | **refused** with a message to get the BepInEx file |
 | Anything else (e.g. standalone tools with an `.exe`) | Save Editor | Vortex fallback (1000) | game root |
 
 Docs that would land in a shared folder (`BepInEx/plugins/README.md`, root-level readmes) are dropped to avoid
-conflicts between mods; docs inside a mod's own folder are kept.
+conflicts between mods; docs inside a mod's own folder are kept. Thunderstore metadata and C# source files (`.cs`,
+`.csproj`, …) outside the `BepInEx` folder are never deployed.
 
 ### Why our own installers are needed
 
@@ -72,7 +75,14 @@ because the package only exposes types through `exports`; at runtime Vortex reso
 
 ## Status
 
-`0.3.0` — first public release. Unit-tested (44 tests), and tested in Vortex 2.7.2 on 2026-10-04 (0.1.0–0.2.4):
+`0.3.4` (2026-10-23). 125 unit tests, including the file lists of 94 real Nexus archives (`test/fixtures/nexus`).
+
+Since 0.3.1 the extension is used with the
+[Nivalis Nights Essentials](https://www.nexusmods.com/games/nivalisnights/collections/2vm7zf) collection (42 mods), across
+game Updates #5 and #6. Archive layouts that broke it there are regression tests now (Thunderstore metadata in 0.3.2,
+C# example source in 0.3.4).
+
+First tests in Vortex 2.7.2 on 2026-10-04 (0.1.0–0.2.4):
 
 - ✅ Extension loads; game discovered via Steam; BepInEx pack (#25) downloaded from Nexus and installed by
   modtype-bepinex as "Bepis Injector Extensible" (mod type `bepinex-injector`).
@@ -92,7 +102,8 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   extensionless `LICENSE` file → fixed in 0.2.3, all 23 archives are now regression tests.
   Re-test after reinstalling Boat Decor with 0.2.3/0.2.4: claimed by the anchored installer, loads from
   `BepInEx/plugins/NivalisBoatDecor/`, 24 plugins, no Buggy-installer errors.
-- ⬜ MelonLoader refusal, Save Editor (standalone exe), collection (none exist on Nexus yet) — not yet tested in Vortex.
+- ✅ 0.3.1: the pack's current main file is looked up on Nexus at download time and installed by the pack installer.
+- ⬜ MelonLoader refusal and standalone tools (Save Editor) — not yet tested in Vortex.
 
 ### Known issues / notes
 
@@ -106,6 +117,9 @@ because the package only exposes types through `exports`; at runtime Vortex reso
   off unless `OnlyNoConsole = false`. With its default `RenameExe = true` it runs
   `Nivalis Nights.SplashScreen.GUI.exe`, which is the name the extension deploys (0.2.2); setting `RenameExe = false`
   would make it rename the file back and Vortex would report an external change.
+- **BepInEx pack 1.0.2**: file 443 on the pack page is in the "update" category, so the extension installs the main
+  file (182, v1.0.1). Vortex's update check offers 1.0.2 anyway, and the download fails with HTTP 403 (as of
+  2026-10-23). Stay on 1.0.1.
 - **Installer order**: our mod installers run at 21–23, ahead of the 25 slot where some community extensions (e.g.
   Bannerlord's) mis-answer for other games and log "Buggy installer" errors.
 - **Exit crash is the game's**: `0xc0000005` in `UnityPlayer.dll` on quit also happens without Vortex (Windows event
