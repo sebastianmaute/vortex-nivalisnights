@@ -137,6 +137,18 @@ describe("other layouts", () => {
     expect(await claimedBy([p("bepinex", "plugins", "a.dll")])).toEqual(["anchored"]);
   });
 
+  it("C# example project next to BepInEx is accepted and not deployed (Better Time 2.2.15)", async () => {
+    const files = [
+      p("API", "Example", "BetterTimeApiExample.csproj"),
+      p("API", "Example", "ExamplePlugin.cs"),
+      p("API", "README.md"),
+      p("BepInEx", "plugins", "NivalisSlowDays", "NivalisSlowDays.dll"),
+      "README.md",
+    ];
+    expect(await claimedBy(files)).toEqual(["anchored"]);
+    expect(copies(await installBepInExAnchored(files))).toEqual([p("plugins", "NivalisSlowDays", "NivalisSlowDays.dll")]);
+  });
+
   it("BepInEx folder plus non-doc root files (loader-like) is left alone", async () => {
     expect(await claimedBy([p("BepInEx", "plugins", "a.dll"), "winhttp.dll", "doorstop_config.ini"])).toEqual([]);
   });

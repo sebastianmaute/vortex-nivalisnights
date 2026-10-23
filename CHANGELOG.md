@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.4 — unreleased
+
+- Archives that ship C# source next to `BepInEx/` (an `API/Example` project with `.cs` and `.csproj` files) are installed
+  correctly. 0.3.3 declined them, so Vortex's fallback installer deployed them to `BepInEx/plugins/BepInEx/plugins/` with
+  the source folder, `README.md` and `CHANGELOG.txt` loose in `plugins/`. Affected: Nivalis Better Time 2.2.15. Reinstall
+  it after updating. The source files are not deployed.
+
 ## 0.3.3 — 2026-10-14
 
 - Packaging for Vortex's new listing process (extensions in the Vortex Extensions category are picked up automatically):

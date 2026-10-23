@@ -30,6 +30,13 @@ export const isDoc = (file: string): boolean => {
 export const isPackageMetadata = (file: string): boolean =>
   path.basename(file.replace(/[\\/]+$/, "")).toLowerCase() === "manifest.json";
 
+/**
+ * Source code and project files for modders (Better Time 2.2.15 ships an API/Example C# project next
+ * to its BepInEx folder). Never needed in the game; outside the BepInEx folder it is never deployed.
+ */
+const SOURCE_EXTENSIONS = new Set([".cs", ".csproj", ".sln", ".props", ".targets", ".fs", ".fsproj", ".vb", ".vbproj"]);
+export const isSourceFile = (file: string): boolean => SOURCE_EXTENSIONS.has(extOf(file));
+
 const unsupported = (): Promise<types.ISupportedResult> =>
   Promise.resolve({ supported: false, requiredFiles: [] });
 const supported = (): Promise<types.ISupportedResult> =>
@@ -160,10 +167,11 @@ export function testBepInExAnchored(files: string[], gameId: string): Promise<ty
   if (inside.length === 0) {
     return unsupported();
   }
-  // Anything outside the BepInEx folder other than docs and package metadata (e.g. winhttp.dll,
-  // doorstop files) means this is a loader package or something unusual — leave it to other installers.
+  // Anything outside the BepInEx folder other than docs, package metadata and source code (e.g.
+  // winhttp.dll, doorstop files) means this is a loader package or something unusual — leave it to
+  // other installers.
   const outside = data.filter((f) => bepinexIndex(f) === -1);
-  return outside.every((f) => isDoc(f) || isPackageMetadata(f)) ? supported() : unsupported();
+  return outside.every((f) => isDoc(f) || isPackageMetadata(f) || isSourceFile(f)) ? supported() : unsupported();
 }
 
 export function installBepInExAnchored(files: string[]): Promise<types.IInstallResult> {
