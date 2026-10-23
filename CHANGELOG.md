@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.4 — unreleased
+## 0.3.4 — 2026-10-23
 
 - Archives that ship C# source next to `BepInEx/` (an `API/Example` project with `.cs` and `.csproj` files) are installed
   correctly. 0.3.3 declined them, so Vortex's fallback installer deployed them to `BepInEx/plugins/BepInEx/plugins/` with

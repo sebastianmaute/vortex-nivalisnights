@@ -8,7 +8,7 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 | Game | Modding Tools (site) — *not* the Nivalis Nights section |
 | Mod name | `Nivalis Nights Vortex Extension` (common convention; Vortex itself shows the `info.json` name "Nivalis Nights") |
 | Category | Modding Tools > Vortex Extensions (Vortex lists extensions from this category automatically) |
-| Version | `0.3.3` — must match `info.json` |
+| Version | `0.3.4` — must match `info.json` |
 | Language | English |
 | Summary | `Adds Nivalis Nights to Vortex: finds the game on Steam, installs BepInEx 6 (IL2CPP) automatically and installs BepInEx mods to the right place whatever the archive layout.` |
 | Description | contents of [`description.bbcode`](description.bbcode) |
@@ -22,11 +22,11 @@ under **Main Files**, version identical to `info.json`, semver, correct category
 
 | Field | Value |
 |---|---|
-| File | `release/game-nivalisnights-0.3.3.zip` |
+| File | `release/game-nivalisnights-0.3.4.zip` |
 | File name | `Nivalis Nights Vortex Extension` |
-| Version | `0.3.3` |
+| Version | `0.3.4` |
 | Category | Main Files — archive the previous version so there is a single main file |
-| Description | `Vortex extension for Nivalis Nights 0.3.3 — gameId for Vortex's automatic listing, new 640×360 game art.` |
+| Description | `Vortex extension for Nivalis Nights 0.3.4 — installs mods that ship C# example source next to the BepInEx folder (Nivalis Better Time 2.2.15) to the right place.` |
 
 ## Changelog (Nexus "Logs" tab)
 
