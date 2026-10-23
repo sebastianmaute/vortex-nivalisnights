@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: EUPL-1.2
 import * as path from "path";
 
-import type { types } from "@nexusmods/vortex-api";
+import type { types } from "@nexusmods/vortex-api" with { "resolution-mode": "import" };
 
 import { EXECUTABLE, GAME_ID, MODTYPE_BEPINEX_INJECTOR, MODTYPE_BEPINEX_PLUGIN, MODTYPE_BEPINEX_ROOT } from "./common";
 
