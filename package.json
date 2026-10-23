@@ -18,9 +18,9 @@
     "nexusGameId": 10401
   },
   "devDependencies": {
-    "@nexusmods/vortex-api": "2.7.2",
-    "@types/node": "^22.0.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "@nexusmods/vortex-api": "2.9.0",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
   }
 }
