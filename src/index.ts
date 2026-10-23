@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: EUPL-1.2
 import * as path from "path";
 
-import { fs, log } from "@nexusmods/vortex-api";
-import type { types } from "@nexusmods/vortex-api";
+import type * as VortexApi from "@nexusmods/vortex-api" with { "resolution-mode": "import" };
+import type { types } from "@nexusmods/vortex-api" with { "resolution-mode": "import" };
 
 import {
   BEPINEX_PACK,
@@ -23,6 +23,9 @@ import {
   testMelonLoader,
 } from "./installers";
 import { FALLBACK_PACK, resolvePackFile } from "./pack";
+
+// The vortex-api package only ships ES module types; Vortex provides the module itself to require() at runtime.
+const { fs, log } = require("@nexusmods/vortex-api") as typeof VortexApi;
 
 /** Folders the BepInEx mod types deploy into — Vortex does not create them on its own. */
 const BEPINEX_DIRS = [
