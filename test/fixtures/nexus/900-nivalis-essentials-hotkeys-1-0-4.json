@@ -1,17 +1,19 @@
 {
-  "source": "Nivalis Essentials Hotkeys 1.0.3.zip (collection bundle)",
+  "source": "Nivalis Essentials Hotkeys 1.0.4.zip (collection bundle)",
   "nexusModId": 0,
   "files": [
     "BepInEx\\config\\brenner.nivalis.moddeck.cfg",
     "BepInEx\\config\\brenner.nivalis.toolkit.cfg",
     "BepInEx\\config\\cairfrey.nivalis.inventorytabs.cfg",
     "BepInEx\\config\\com.nivalis.telescope-move.cfg",
+    "BepInEx\\config\\djolhan.nivalis.questjournal.cfg",
     "BepInEx\\config\\hvizeu.nivalis.citylife.cfg",
     "BepInEx\\config\\hvizeu.nivalis.slowdays.cfg",
     "BepInEx\\config\\local.nivalis.questguide.cfg",
     "BepInEx\\config\\Mod Companion.cfg",
     "BepInEx\\config\\nivalis.ambience.cfg",
     "BepInEx\\config\\NivalisBigTipper.cfg",
+    "BepInEx\\config\\NivalisFootTraffic.cfg",
     "BepInEx\\config\\NivalisHomeOffice.cfg",
     "README.txt"
   ]
