@@ -1,0 +1,8 @@
+{
+  "source": "Nivalis Map & Stock Tags Fix 1.0.0.zip (collection bundle)",
+  "nexusModId": 0,
+  "files": [
+    "BepInEx\\plugins\\NivalisMapStockTagsFix\\NivalisMapStockTagsFix.dll",
+    "BepInEx\\plugins\\NivalisMapStockTagsFix\\README.txt"
+  ]
+}
