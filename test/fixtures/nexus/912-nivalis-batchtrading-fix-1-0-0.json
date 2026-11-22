@@ -1,0 +1,8 @@
+{
+  "source": "Nivalis Batch Trading Fix 1.0.0.zip (collection bundle)",
+  "nexusModId": 0,
+  "files": [
+    "BepInEx\\plugins\\NivalisBatchTradingFix\\NivalisBatchTradingFix.dll",
+    "BepInEx\\plugins\\NivalisBatchTradingFix\\README.txt"
+  ]
+}
